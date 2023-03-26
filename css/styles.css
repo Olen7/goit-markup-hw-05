@@ -375,6 +375,10 @@ img {
     align-items: center;
     justify-content: center;
 }
+.soc-item-link:hover{
+    border-radius: 50%;
+    background-color: #404BBF;
+}
 .text-profil{
     padding-top: 32px;
     padding-bottom: 32px;
@@ -382,21 +386,21 @@ img {
     flex-direction: column;
     align-items: center;
 }
-/*-------siction4--------- */
-
+/*-------siction5--------- */
+.icon-text{
+    padding-top: 120px;
+    margin-bottom: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
 .icon-section{
     display: flex;
     gap: 24px;
     padding-bottom: 120px;
     
 }
-.icon-text{
-   padding-top: 120px;
-   margin-bottom: 72px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-}
+
 .icon-items{
    
    width:168px;
@@ -412,6 +416,7 @@ img {
     border: 1px solid #8E8F99;
     border-radius: 4px;
     padding: 16px 32px;
+    fill:#8E8F99
 }
 
 .client-link:hover,
@@ -419,16 +424,9 @@ img {
 {
     border: 1px solid #404BBF;
     border-radius: 4px;
+    fill: #404BBF
 }
-
-.icon-svg-logo{
-    fill:#8E8F99 ;
-
-} 
-.icon-svg-logo:hover, .icon-svg-logo:focus{
-    fill: #404BBF;
-}
-/*-----------FOOTHER----------------*/
+/* ----------FOOTHER----------------*/
 .footer {
     background-color: #2e2f42;
     padding-top: 100px;
@@ -465,7 +463,7 @@ img {
     margin-bottom: 16px;
 }
 
-.tst{
+.footer-item-list{
     display: flex;
     flex-direction: column;
     padding: 0px;
@@ -516,7 +514,10 @@ div > a + p {
     /* opacity: 0.1; */
     
 }
-
+.footer-soc-link:hover{
+    border-radius: 50%;
+    background-color: #31D0AA; 
+}
 /*----------------Portfolio.html-----------------*/
 /*-----------------MAIN----------------------*/
 .button{
