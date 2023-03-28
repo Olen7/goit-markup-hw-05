@@ -41,10 +41,13 @@ img {
 *::after {
     box-sizing: border-box;
 }
+:root{
+    --transition-duration: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 /*-------------header-------------------*/
 .header {
     padding-top: 24px;
-    padding-bottom: 24px;
+    padding-bottom: 24px; 
     border-bottom: 1px solid #E7E9FC;
     box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
@@ -54,6 +57,7 @@ img {
     justify-content: space-between;
     align-items: center;
     max-width: 1128px;
+    
 }
 .header-nav{
     display: flex;
@@ -61,6 +65,7 @@ img {
     text-shadow:(0px 4px 4px rgba(0, 0, 0, 0.25));
     
 }
+
 .header-link {
     font-family: 'Raleway', sans-serif;
     font-style: normal;
@@ -79,10 +84,12 @@ img {
 .menu-list{
     display: flex;
     align-items:center;
+    position: relative;
 }
     
 .menu-item-studio {
     margin-right: 40px;
+    
 } 
 .menu-item-portfolio{
     margin-right: 40px;}
@@ -94,13 +101,41 @@ img {
     letter-spacing: 0.02em;
     color: var(--modal-color);
     --modal-color: #2E2F42;
+    position: relative;
+    padding-bottom: 28px;
 }
 
 .menu-link:hover,.menu-link:focus {
     color: #404bbf;
+    transition: tansform var(--transition-duration);
 }
+
+.menu-link.after-line::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background: #404BBF;
+  border-radius: 2px;
+  width: 100%;
+  height: 4px;
+  left: 0;
+  bottom: 0;
+  margin-top: 24px;
+  opacity: 0;
+}
+.after-line:hover::after {
+    background: #404BBF;
+    opacity: 1;
+    transition: tansform var(--transition-duration);
+}
+.menu-list:hover::after,.menu-list:focus::after {
+    background: #404BBF;
+    opacity: 1;
+    transition: tansform var(--transition-duration);}
+    
 /*-------------------address---------------*/
 .socials {
+    
     font-style: normal;
 }
 .socials-list{
@@ -108,6 +143,7 @@ img {
     justify-content: flex-end;
     align-items: center;
 }
+
 .socials-mailto{
     margin-right: 40px; 
     
@@ -125,6 +161,7 @@ img {
 
 .socials-address:is(:hover, :focus, :active) {
     color:#404bbf;
+    transition: tansform var(--transition-duration);
 }
   
 /*--------------siction1-------------*/
@@ -180,24 +217,32 @@ img {
     transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);
   }
   .backdrop {
+    display: inline-block;
     position: absolute;
-    width: 408px;
-    height: 576px;
     background: #FCFCFC;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    
   }
   .modal {
-        width: 300px;
-        height: 250px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: #fff;
+    
+    width: 408px;
+    height: 576px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    transform: translate(-50%, -50%) scaleY(1) ;
+    transition: transform 2500ms cubic-bezier(.33,.78,.5,.52);
+    animation-iteration-count:inherit;
+    background: #fff;
+  }
+  .bacdrop.is-hidden .modal{
+    transform: translate(-50%, -50%) scaleY(0);
+    transition: transform 2500ms cubic-bezier(.33,.78,.5,.52);
   }
   .close-button {
     position: absolute;
@@ -210,7 +255,7 @@ img {
     border: 1px solid rgba(0, 0, 0, 0.1);
     
   }
-  .aaa{
+  .bacdrop-svg{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -223,6 +268,7 @@ img {
     border-radius: 4px;
     border-radius: 50%;
     fill: #FFFFFF;
+    transition: tansform var(--transition-duration);
   }
   .is-hidden {
     opacity: 0;
@@ -378,6 +424,8 @@ img {
 .soc-item-link:hover{
     border-radius: 50%;
     background-color: #404BBF;
+    transition: tansform var(--transition-duration);
+    
 }
 .text-profil{
     padding-top: 32px;
@@ -398,6 +446,7 @@ img {
     display: flex;
     gap: 24px;
     padding-bottom: 120px;
+    
     
 }
 
@@ -424,7 +473,9 @@ img {
 {
     border: 1px solid #404BBF;
     border-radius: 4px;
-    fill: #404BBF
+    fill: #404BBF;
+    
+    transition: tansform var(--transition-duration);
 }
 /* ----------FOOTHER----------------*/
 .footer {
@@ -473,9 +524,6 @@ img {
     margin-right: 120px;
 }
 
-div > a + p {
-  max-width:264px;
-}
 .footer-items{
     display: flex;
     flex-direction: column;
@@ -517,6 +565,7 @@ div > a + p {
 .footer-soc-link:hover{
     border-radius: 50%;
     background-color: #31D0AA; 
+    transition: tansform var(--transition-duration);
 }
 /*----------------Portfolio.html-----------------*/
 /*-----------------MAIN----------------------*/
@@ -551,6 +600,7 @@ div > a + p {
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
     border-radius: 4px;
     border-color: #404bbf;
+    transition: tansform var(--transition-duration);
 }
 /*-----------------MAIN--------------*/
 
@@ -588,6 +638,7 @@ div > a + p {
     background: #4D5AE5;
     background-blend-mode: soft-light;
     mix-blend-mode: normal;
+    transition: tansform var(--transition-duration);
 }
 .portfolio-sector{
     display: flex;
@@ -608,38 +659,9 @@ div > a + p {
 .content-position{
     position: relative;
     overflow: hidden;
-    /* 
-    background: #4D5AE5;
-    background-blend-mode: soft-light;
-    mix-blend-mode: normal;
-    width: 360px;
-    height: 300px;*/
+   
 } 
-/* .content-position::before{
-    display: inline-block;
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    background-color: #020e92;
-    transform: translateY(300px);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-} */
-/* .content-position{
-    position: absolute;
-} */
-/* .content-position:hover{
-    opacity: 1;
-    transform: translateX();
-} */
-/* .content-link-img:hover  
-.content-position::before{
-    position: relative;
-    overflow: 1;
-} */
+
 .content-overlei-text{
     position: absolute;
     top: 0;
